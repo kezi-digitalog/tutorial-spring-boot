@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*
 class TutorialSpringBootApplication
 
 @Controller
-class FirstController {
-    @RequestMapping(value = ["/user"], method = arrayOf(RequestMethod.GET))
+class FirstController(val exampleService: ExampleService) {
+    @RequestMapping(value = ["/user/{name}"], method = arrayOf(RequestMethod.GET))
     @ResponseBody
-    fun hello() = "hello world"
+    fun hello(@PathVariable name: String) = exampleService.getHello(name)
 }
 
 fun main(args: Array<String>) {
