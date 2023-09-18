@@ -2,7 +2,11 @@ package com.example.tutorialspringboot
 
 import org.springframework.stereotype.Service
 
+interface ServiceInterface{
+    fun getHello(name: String): String
+}
+
 @Service
-class ExampleService {
-    fun getHello(name: String) = "hello $name"
+class ExampleService: ServiceInterface {
+    override fun getHello(name: String): String = "hello $name"
 }
